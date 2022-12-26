@@ -2,11 +2,8 @@
 Project is not completed
 
 ## TODO
-1. Read env for api key
-2. Pull Command
-3. Push Command
-4. Pull Command with option
-5. Push Command with option
+1. Pull Command
+2. Push Command
 
 ## Setup
 1. Init the `sync-state.json` for config & log sync state
@@ -29,8 +26,8 @@ There are two situation
 ```
 npm run syncman push
 ```
-### Need to download it First
-1. Setup `default.id` that on remote && `default.path` where you want to store collection in your local in `sync-state.json`
+### 2. Need to download it First
+1. Setup `default.id` which can get from remote and `default.path` where you want to store collection in your local in `sync-state.json`
 2. Pull it your Postman Workspace to local
 ```
 npm run syncman pull

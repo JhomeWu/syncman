@@ -1,7 +1,7 @@
 import { ResourceType } from "../types/resources";
 import StateHelper from "../helpers/StateHelper";
 
-export default function InitState() {
+export default function initState() {
     const defaultState = StateHelper.get();
 
     if (StateHelper.isValid(defaultState)) {

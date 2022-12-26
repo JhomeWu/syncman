@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import InitState from "./actions/InitState";
+import initState from "./actions/initState";
 import pull from "./actions/pull";
 import { DEFAULT_STATE_KEY } from "./types/state";
 
@@ -7,7 +7,7 @@ const program = new Command();
 
 program
   .command('init')
-  .action(InitState);
+  .action(initState);
 
 program
   .command('pull')
