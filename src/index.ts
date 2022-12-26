@@ -1,10 +1,10 @@
 import { Command } from "commander";
-import InitState from "./actions/InitState";
+import initState from "./actions/initState";
 
 const program = new Command();
 
 program
   .command('init')
-  .action(InitState);
+  .action(initState);
 
 program.parse(process.argv)
