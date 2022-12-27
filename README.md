@@ -2,8 +2,9 @@
 Project is not completed
 
 ## TODO
-1. Pull Command
+1. Generate Markdown
 2. Push Command
+3. Init By Workspace
 
 ## Setup
 1. Init the `sync-state.json` for config & log sync state
