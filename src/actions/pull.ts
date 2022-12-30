@@ -5,7 +5,10 @@ import StateHelper from "../helpers/StateHelper";
 
 export default async function pull(stateKey: string) {
     const currentState = StateHelper.get(stateKey);
-    const resource = await PostmanRequestHelper.get(`/${currentState.type}/${currentState.id}`);
+    const response = await PostmanRequestHelper.get(`/${currentState.type}/${currentState.id}`);
+    const resourceKey = currentState.type.slice(0, -1);
+    const resource = response?.[resourceKey] ?? {};
+    delete resource.info._postman_id;
     writeFileSync(currentState.path, JSON.stringify(resource, null, 2));
     currentState.pulled = (
         currentState.pulled ||
@@ -18,4 +21,5 @@ export default async function pull(stateKey: string) {
     );
     StateHelper.set(currentState, stateKey);
     StateHelper.store();
+    return resource;
 }
