@@ -11,6 +11,7 @@ export default function initState() {
       id: '',
       type: ResourceType.Collection,
       path: './default.collection.json',
+      dir: './default_export',
       pushed: [],
       pulled: [],
     });

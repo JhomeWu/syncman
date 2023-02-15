@@ -6,6 +6,7 @@ export interface State {
     id?: string,
     type?: ResourceType.Collection | ResourceType.Environment,
     path?: string,
+    dir?: string,
     pushed?: Array<PushedResource>
     pulled?: Array<PulledResource>
 }
