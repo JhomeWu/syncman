@@ -10,8 +10,8 @@ export default function initState() {
     StateHelper.set({
       id: '',
       type: ResourceType.Collection,
-      path: './default.collection.json',
-      dir: './default_export',
+      path: './.collections/default.collection.json',
+      dir: './.splits/default',
       pushed: [],
       pulled: [],
     });
