@@ -2,6 +2,7 @@ import { writeFileSync } from 'fs';
 import { PulledResource } from '../types/resources';
 import PostmanRequestHelper from '../helpers/PostmanRequestHelper';
 import StateHelper from '../helpers/StateHelper';
+import FileHelper from '../helpers/FileHelper';
 
 export default async function pull(stateKey: string) {
   const currentState = StateHelper.get(stateKey);
@@ -9,6 +10,8 @@ export default async function pull(stateKey: string) {
   const resourceKey = currentState.type.slice(0, -1);
   const resource = response?.[resourceKey] ?? {};
   delete resource.info._postman_id;
+  const splitDir = currentState.path.substring(0, currentState.path.lastIndexOf('/'));
+  FileHelper.mkdir(splitDir);
   writeFileSync(currentState.path, JSON.stringify(resource, null, 2));
   currentState.pulled = currentState.pulled ?? [];
   currentState.pulled.push(
