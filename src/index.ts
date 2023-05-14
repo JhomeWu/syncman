@@ -4,6 +4,7 @@ import initState from './actions/initState';
 import pull from './actions/pull';
 import { DEFAULT_STATE_KEY } from './types/state';
 import split from './actions/split';
+import combine from './actions/combine';
 
 const program = new Command();
 
@@ -30,6 +31,13 @@ program
   .option('-k, --key <stateKey>', 'state key for spilt to directory', DEFAULT_STATE_KEY)
   .action((options) => {
     split(options.key);
+  });
+
+program
+  .command('combine')
+  .option('-k, --key <stateKey>', 'state key for combine to collection', DEFAULT_STATE_KEY)
+  .action((options) => {
+    combine(options.key);
   });
 
 program.parse(process.argv);
