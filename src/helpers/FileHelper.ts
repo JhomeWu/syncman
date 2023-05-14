@@ -1,8 +1,16 @@
 import fs from 'fs';
 
 class FileHelper {
+  // convert str to acceptable file name or path
+  public static norm(str: string): string {
+    return str.replace(/[^a-z0-9.]/gi, '_').toLowerCase();
+  }
+
   public static mkdir(path: string): string {
-    const cleanPath = path.replace(/[~#%&*{}\\:<>? +|]/g, '_');
+    const cleanPath = path
+      .split('/')
+      .map((dirFile) => FileHelper.norm(dirFile))
+      .join('/');
     if (!fs.existsSync(cleanPath)) {
       fs.mkdirSync(cleanPath, { recursive: true });
     }
